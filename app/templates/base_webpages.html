@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body style="background: rgb(228,228,228);">
+    <div class="container-fluid shadow" style="padding: 16px;background: #343362;color: rgb(255,255,255);">
+        <div class="row no-gutters">
+            <div class="col-auto mx-auto"></div>
+            <div class="col" style="margin-right: 14px;margin-left: 14px;">
+                <h1 class="text-nowrap text-center mt-3">Flask Web</h1>
+                <p style="text-align: center;">I am creating a simple api for my android app. This api manage users and manage posts.</p>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar shadow navbar-dark navbar-expand-sm sticky-top" style="background: #291f52;">
+        <div class="container-fluid"><a class="navbar-brand text-white" href="/"><img style="width: 32px;margin-right: 8px;margin-bottom: 4px;" src="{{ url_for('static', filename='img/flask_logo_navbar.png') }}" alt="flask_logo"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="nav-link">Api</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tutorial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Document</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block contents %}
+
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bs-init.js') }}"></script>
+</body>
+
+</html>

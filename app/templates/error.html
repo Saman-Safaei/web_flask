@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{{ error_head_title }}</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.min.css') }}>
+</head>
+
+<body>
+    <div class="row align-items-center" style="height: 100vh;width: 100vw;">
+        <div class="col text-center"><img src="{{ url_for('static', filename='img/flask_logo.png') }}" style="max-width: 128px;max-height: 128px;" alt="flask icon">
+            <h1 class="text-center my-auto">{{ error_title }}</h1>
+            <p class="text-center">{{ error_massage }}</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

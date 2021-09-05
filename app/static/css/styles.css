@@ -1,0 +1,18 @@
+.input_style {
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  margin-bottom: 2px;
+}
+
+.border_radius_8px{
+  border-radius: 8px;
+}
+
+.border_radius_16px{
+  border-radius: 16px;
+}
+
+.border_radius_btn {
+  border-radius: 8px;
+}
+
