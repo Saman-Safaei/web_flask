@@ -1,5 +1,6 @@
 {% extends "base_webpages.html" %}
 {% block title %}Home{% endblock %}
+{% block nav_user %}{{ nav_user_text }}{% endblock %}
 {% block contents %} <div>
         <div class="container-fluid" style="padding: 16px;">
             <div class="row">
@@ -8,20 +9,24 @@
                     <div class="card shadow-sm border_radius_16px" style="margin-bottom: 16px;">
                         <div class="card-body">
                             <h4 class="card-title text-right">{{ blog_post.title }}</h4>
-                            <h6 class="text-muted card-subtitle mb-2 text-right">{{ blog_post.subtitle }}</h6>
-                            <p class="card-text text-right text-justify">{{ blog_post.body_text | safe}}</p><a class="card-link" href="{{ blog_post.url }}">More</a>
+                            <h6 class="text-muted card-subtitle mb-2 text-right">{{ blog_post.subtitle}}</h6>
+                            <p class="card-text text-right text-justify">{{ blog_post.text_body | safe}}</p><a class="card-link" href="{{ url_for('posts.show_a_post', _id = blog_post._id) }}">More</a>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
                 <div class="col-md-4">
-                    <div class="card border_radius_16px">
+                    <div class="card shadow-sm border_radius_16px">
                         <div class="card-body">
                             <div class="row row-cols-1 justify-content-center">
                                 <div class="col">
-                                    <p>This is a Text</p>
-                                    <p>This is a news</p>
-                                    <p>This is a UNKNOWN</p>
+                                    <h4 class="text-right" style="padding-right: 16px">آخرین مطالب</h4>
+                                    <ul dir="rtl">
+                                        <li><a href="/a">Link 1</a></li>
+                                        <li><a href="/a">Link 2</a></li>
+                                        <li><a href="/a">Link 3</a></li>
+                                        <li><a href="/a" class="float-right">آخرین مطالب</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

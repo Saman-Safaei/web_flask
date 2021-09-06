@@ -19,14 +19,17 @@
             </div>
         </div>
     </div>
-    <nav class="navbar shadow navbar-dark navbar-expand-sm sticky-top" style="background: #291f52;">
+    <nav class="navbar shadow navbar-dark navbar-expand-sm sticky-top" style="background: #291f52;padding-top: 2px;padding-bottom: 2px;">
         <div class="container-fluid"><a class="navbar-brand text-white" href="/"><img style="width: 32px;margin-right: 8px;margin-bottom: 4px;" src="{{ url_for('static', filename='img/flask_logo_navbar.png') }}" alt="flask_logo"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link">Api</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Tutorial</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Document</a></li>
                 </ul>
+                <a href="{{ url_for('users.user_home') }}" class="navbar-text nav-link">
+                    {% block nav_user %}{% endblock %} <img class="img-fluid" style="width: 32px;margin-left: 4px;" src="{{ url_for('static', filename='img/account_circle.svg') }}" alt="acc_icon">
+                </a>
             </div>
         </div>
     </nav>

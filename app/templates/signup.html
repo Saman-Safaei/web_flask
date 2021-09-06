@@ -1,0 +1,26 @@
+{% extends "base_empty_webpages.html" %}
+{% block title %}Login - Flask{% endblock %}
+{% block contents %}
+    <div class="container-fluid">
+        <div class="row no-gutters justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <form class="shadow border_radius_16px bg-light" method="post" action="{{ url_for('users.sign_up_user') }}" style="padding: 16px;"><label class="d-block"><input
+                        class="form-control" type="text" data-toggle="tooltip" data-bs-tooltip="" data-placement="right"
+                        inputmode="latin" minlength="3" required="" placeholder="Username"
+                        title="Required"></label><label class="d-block"><input class="form-control" type="email"
+                                                                               data-toggle="tooltip" data-bs-tooltip=""
+                                                                               data-placement="right" required=""
+                                                                               inputmode="email" placeholder="E-Mail"
+                                                                               title="Required"></label><label
+                        class="d-block"><input class="form-control" type="password" data-toggle="tooltip"
+                                               data-bs-tooltip="" data-placement="right" required=""
+                                               placeholder="Password" minlength="7" title="Required"></label><label
+                        class="d-block"><input class="form-control" type="password" data-toggle="tooltip"
+                                               data-bs-tooltip="" data-placement="right" placeholder="Confirm Password"
+                                               minlength="7" required="" title="Required"></label>
+                    <button class="btn btn-primary btn-block" type="submit">SignUp</button>
+                    <a class="text-center d-block" href="{{ url_for('users.login_user') }}" style="padding: 8px;">Login</a></form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

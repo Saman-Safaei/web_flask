@@ -1,19 +1,36 @@
-from datetime import timedelta
+import datetime
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
-from app.jwt_security import identity, authenticate
+from .jwt_security import identity, authenticate
+from flask_sqlalchemy import SQLAlchemy
+import os
 
+
+# APP Creation
 app = Flask(__name__)
-app.secret_key = b"AASas#$^asf$as2!@$fw#efsSAfSDF&@$SAD@$&s/#"
-app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=20)
-app.config['JWT_AUTH_URL_RULE'] = '/refresh_token'
+app.config.from_pyfile(os.path.join(os.path.dirname(__file__), "config_file.py"))
+# API Creation
 api = Api(app)
+# JSON WEB TOKEN Creation
 jwt = JWT(app, authenticate, identity)
-url_list = []
+# SQL ALCHEMY Creation
+sqlalchemy_db = SQLAlchemy(app)
 
-from app import views
-from app import page_error_handler
-from app.api_folder import api_users
-from app.blueprints import posts
-app.register_blueprint(posts)
+
+# Initialize APIs and Error Handler
+from . import page_error_handler
+from .api_folder import api_users, api_posts
+# Initialize Blueprints
+from .blueprints.posts_bp import blueprint_posts
+from .blueprints.home_bp import blueprint_home
+from .blueprints.users_bp import blueprint_users
+# Initialize Models
+from .database import model
+
+
+# Register Blueprints
+app.register_blueprint(blueprint_posts)
+app.register_blueprint(blueprint_home)
+app.register_blueprint(blueprint_users)
